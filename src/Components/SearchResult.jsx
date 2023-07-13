@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./header";
 
 export function Result(props) {
   const boxes = props.movies.map((item) => {
@@ -11,7 +12,11 @@ export function Result(props) {
       />
     );
   });
-  return <div className="w-[3/4] pr-2 grid md:grid-cols-3 gap-5 col-span-2">{boxes}</div>;
+  return (
+    <div className="pl-[500px] pr-2 grid md:grid-cols-3 gap-5 col-span-3">
+      {boxes}
+    </div>
+  );
 }
 const Box = ({ image, title, rating }) => {
   const imgpath = "https://image.tmdb.org/t/p/w1280";
