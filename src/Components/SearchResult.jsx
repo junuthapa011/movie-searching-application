@@ -11,7 +11,7 @@ export function Result(props) {
       />
     );
   });
-  return <div className="w-[3/4] pr-3 grid md:grid-cols-3 gap-5 justify-items-end">{boxes}</div>;
+  return <div className="w-[3/4] pr-2 grid md:grid-cols-3 gap-5 col-span-2">{boxes}</div>;
 }
 const Box = ({ image, title, rating }) => {
   const imgpath = "https://image.tmdb.org/t/p/w1280";

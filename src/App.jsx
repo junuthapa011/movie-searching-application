@@ -52,7 +52,7 @@ function App() {
 
   return (
     <>
-      <div className="max-w-[1240px] shadow-xl min-h-[400px] mr-auto">
+      <div className="grid grid-cols-2 max-w-[1240px] shadow-xl min-h-[400px] mr-auto">
         <NavBar>
         <SearchBar
           type="search"
