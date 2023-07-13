@@ -13,7 +13,7 @@ export function Result(props) {
     );
   });
   return (
-    <div className="pl-[500px] pr-2 grid md:grid-cols-3 gap-5 col-span-3">
+    <div className="pl-[500px] pr-2 grid md:grid-cols-3 gap-5 col-span-3 mt-20">
       {boxes}
     </div>
   );
