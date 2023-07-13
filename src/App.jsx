@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Result } from "./Components/SearchResult";
 import axios from "axios";
+import NavBar from "./components/nav-bar";
+import SearchBar from "./components/search-bar";
 
 const APIURL =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -50,13 +52,16 @@ function App() {
 
   return (
     <>
-      <div className="max-w-[1240px] shadow-xl min-h-[400px] mx-auto p-3">
-        <input
+      <div className="max-w-[1240px] shadow-xl min-h-[400px] mr-auto">
+        <NavBar>
+        <SearchBar
           type="search"
           value={search}
           onChange={changeSearch}
-          className="w-full border border-black rounded text-slate-600 p-4"
+          className="w-full border border-black rounded text-slate-600"
         />
+        </NavBar>
+        
         {movies.length === 0 && search !== "" ? (
           <div className="flex justify-center text-3xl">Loading...</div>
         ) : (
