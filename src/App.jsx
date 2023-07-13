@@ -68,7 +68,7 @@ function App() {
         </NavBar>
 
         {movies.length === 0 && search !== "" ? (
-          <div className="flex flex-col pt-10 pl-[800px]">
+          <div className="flex flex-col pt-14 pl-[720px]">
             <FcSearch className="text-3xl" />
             <span className="text-2xl pb-5">Results for:{search}</span>
             <div className="text-xl">Can't find movies...</div>
