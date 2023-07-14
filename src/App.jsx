@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Result } from "./Components/SearchResult";
 import axios from "axios";
+import NavBar from "./components/nav-bar";
+import SearchBar from "./components/search-bar";
+import { FcSearch } from "react-icons/fc";
+import Header from "./Components/header";
 
 const APIURL =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -25,6 +29,7 @@ function App() {
 
   const changeSearch = (e) => {
     setSearch(e.target.value);
+    return e.target.value;
   };
 
   const getSearchedMovies = () => {
@@ -50,15 +55,24 @@ function App() {
 
   return (
     <>
-      <div className="max-w-[1240px] shadow-xl min-h-[400px] mx-auto p-3">
-        <input
-          type="search"
-          value={search}
-          onChange={changeSearch}
-          className="w-full border border-black rounded text-slate-600 p-4"
-        />
+      <Header />
+      <div className="grid grid-cols-2 max-w-[1240px] min-h-[400px]">
+        <NavBar>
+          <SearchBar
+            type="search"
+            value={search}
+            onChange={changeSearch}
+            className="text-slate-300"
+            placeholder="Search Movies..."
+          />
+        </NavBar>
+
         {movies.length === 0 && search !== "" ? (
-          <div className="flex justify-center text-3xl">Loading...</div>
+          <div className="flex flex-col pt-10 pl-[800px]">
+            <FcSearch className="text-3xl" />
+            <span className="text-2xl pb-5">Results for:{search}</span>
+            <div className="text-xl">Can't find movies...</div>
+          </div>
         ) : (
           <Result movies={movies} />
         )}
